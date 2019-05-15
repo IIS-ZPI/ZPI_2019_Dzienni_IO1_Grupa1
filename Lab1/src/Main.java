@@ -1,4 +1,4 @@
-public class Main implements IArithmeticsDiff, IArithmeticsMult, IArithmeticsAdd{
+public class Main implements IArithmeticsDiff, IArithmeticsMult, IArithmeticsAdd, IArithmeticsDiv {
 
     public static void main(String[] args) {
         System.out.println("Grupa1 Operation Paxon96");
@@ -19,7 +19,11 @@ public class Main implements IArithmeticsDiff, IArithmeticsMult, IArithmeticsAdd
 
     @Override
     public double Addition(double A, double B) {
-        return A+B;
+        return A + B;
+    }
 
+    @Override
+    public double Divsion(double A, double B) {
+        return A / B;
     }
 }
