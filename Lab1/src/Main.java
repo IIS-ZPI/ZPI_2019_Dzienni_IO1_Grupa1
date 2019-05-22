@@ -16,7 +16,7 @@ public class Main implements IArithmeticsDiff, IArithmeticsMult, IArithmeticsAdd
     public double Multiplication(double A, double B) {
         return A * B;
     }
-
+    //feature Zad EF
     @Override
     public double Addition(double A, double B) {
         return A + B;
