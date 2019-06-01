@@ -6,4 +6,10 @@ import static org.junit.Assert.*;
 
 public class DataReciverTest {
 
+    @Test
+    public void shouldAnswerWithTrue()
+    {
+        assertTrue( true );
+    }
+
 }
