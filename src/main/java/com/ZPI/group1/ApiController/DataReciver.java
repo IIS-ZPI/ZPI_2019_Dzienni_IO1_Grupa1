@@ -17,14 +17,14 @@ public class DataReciver {
                 .build();
 
         NBPService nbpService = retrofit.create(NBPService.class);
-        Call<List<ApiResoult>> call=nbpService.goldPrice();
+        Call<List<ApiResoult>> call = nbpService.goldPrice();
         try {
 
             ApiResoult apiResoult = call.execute().body().get(0);
             System.out.println(apiResoult);
             return apiResoult;
-        }catch (IOException e){
-            System.out.println(e.getMessage()+" blad");
+        } catch (IOException e) {
+            System.out.println(e.getMessage() + " blad");
         }
         return null;
 
