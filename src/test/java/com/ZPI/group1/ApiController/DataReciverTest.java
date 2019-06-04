@@ -12,4 +12,19 @@ public class DataReciverTest {
         assertTrue( true );
     }
 
+    @Test
+    public void dataRecieverShouldNotReturnNull(){
+
+        assertNotNull(DataReciver.ApiTest());
+
+    }
+
+    @Test
+    public void dataRecieverShouldReturnProperValueOfGold(){
+
+        final Double EXPECTED_PRIZE = 162.17;
+
+        assertEquals(EXPECTED_PRIZE, DataReciver.ApiTest().cena);
+
+    }
 }
