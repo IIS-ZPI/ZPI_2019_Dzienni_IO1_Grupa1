@@ -17,7 +17,7 @@ public class App
 
         List<ApiResoult> apiResoults = new ArrayList<>();
         apiResoults.add(apiResoult);
-
+        System.out.println(apiResoults.get(0).date);
         Statistics.useMenu(apiResoults);
     }
 }
