@@ -186,29 +186,29 @@ public final class Statistics {
 
     private static void printOptionMenu() {
 
-        System.out.println("1. Ilość sesji wzrostowych.");
-        System.out.println("2. Ilość sesji spadkowych.");
-        System.out.println("3. Ilość sesji bez zmian.");
+        System.out.println("1. Ilosc sesji wzrostowych.");
+        System.out.println("2. Ilosc sesji spadkowych.");
+        System.out.println("3. Ilosc sesji bez zmian.");
         System.out.println("4. Mediana");
         System.out.println("5. Dominanta");
         System.out.println("6. Odchylenie standardowe.");
-        System.out.println("7. Współczynnik zmienności");
-        System.out.println("8. Rozkład zmian miesięcznych");
-        System.out.println("9. Rozkład zmian kwartalnych");
+        System.out.println("7. Wspolczynnik zmiennosci");
+        System.out.println("8. Rozklad zmian miesiecznych");
+        System.out.println("9. Rozklad zmian kwartalnych");
     }
 
     private static void printPeriodMenu() {
 
-        System.out.println("1. Jeden tydzień");
+        System.out.println("1. Jeden tydzien");
         System.out.println("2. Dwa tygodnie");
-        System.out.println("3. Jeden miesiąc");
-        System.out.println("4. Jeden kwartał");
-        System.out.println("5. Pół roku");
+        System.out.println("3. Jeden miesiac");
+        System.out.println("4. Jeden kwartal");
+        System.out.println("5. Pol roku");
         System.out.println("6. Rok");
     }
 
     private static void printCurrencyMenu() {
 
-        System.out.println("Wprowadź kod waluty: ");
+        System.out.println("Wprowadz kod waluty: ");
     }
 }
