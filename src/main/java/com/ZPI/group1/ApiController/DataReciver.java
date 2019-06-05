@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class DataReciver {
-    public static ApiResoult ApiTest() {
+    public ApiResoult apiTest() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://api.nbp.pl/api/")
                 .addConverterFactory(GsonConverterFactory.create())
