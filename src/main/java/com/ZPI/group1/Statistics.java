@@ -25,7 +25,7 @@ public final class Statistics {
      *
      * @param apiResults Data to perform calculations on.
      */
-    public static void useMenu(List<ApiResoult> apiResults) {
+    public void useMenu(List<ApiResoult> apiResults) {
 
         Scanner in = new Scanner(System.in);
         boolean skipPeriodMenu;
@@ -173,7 +173,7 @@ public final class Statistics {
         }
     }
 
-    private static boolean validateCurrencyCode(String code) {
+    boolean validateCurrencyCode(String code) {
 
         if (code == null || code.isEmpty() || code.length() != 3 || Pattern.matches("[^a-zA-Z]+", code)) {
             return false;
