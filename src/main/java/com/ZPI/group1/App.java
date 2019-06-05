@@ -13,7 +13,8 @@ public class App
 {
     public static void main( String[] args )
     {
-        ApiResoult apiResoult = DataReciver.ApiTest();
+        DataReciver dataReciver = new DataReciver();
+        ApiResoult apiResoult = dataReciver.apiTest();
 
         List<ApiResoult> apiResoults = new ArrayList<>();
         apiResoults.add(apiResoult);

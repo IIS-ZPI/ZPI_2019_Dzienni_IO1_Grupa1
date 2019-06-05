@@ -173,7 +173,7 @@ public final class Statistics {
         }
     }
 
-    boolean validateCurrencyCode(String code) {
+    public boolean validateCurrencyCode(String code) {
 
         if (code == null || code.isEmpty() || code.length() != 3 || Pattern.matches("[^a-zA-Z]+", code)) {
             return false;
