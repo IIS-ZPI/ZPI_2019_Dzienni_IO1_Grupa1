@@ -87,6 +87,7 @@
         <plugin>
           <artifactId>maven-assembly-plugin</artifactId>
           <configuration>
+            <finalName>ZPI_PROJECT</finalName>
             <archive>
               <manifest>
                 <mainClass>com.ZPI.group1.App</mainClass>
