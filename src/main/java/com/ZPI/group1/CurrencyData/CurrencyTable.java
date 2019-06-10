@@ -8,4 +8,13 @@ public class CurrencyTable {
     public String code;
     public List<Rate> rates = null;
 
+    @Override
+    public String toString() {
+        return "CurrencyTable{" +
+                "table='" + table + '\'' +
+                ", currency='" + currency + '\'' +
+                ", code='" + code + '\'' +
+                ", rates=" + rates +
+                '}';
+    }
 }
