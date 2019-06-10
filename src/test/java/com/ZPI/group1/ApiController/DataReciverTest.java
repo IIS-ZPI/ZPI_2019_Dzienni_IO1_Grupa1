@@ -21,7 +21,7 @@ public class DataReciverTest {
 
         DataReciver dataReciver = new DataReciver();
 
-        assertNotNull(dataReciver.apiTest());
+        assertNotNull(dataReciver.ApiTest());
 
     }
 
@@ -33,14 +33,14 @@ public class DataReciverTest {
 
         try {
            EXPECTED_API_RESOULT = new ApiResoult("2019-06-05",45.34);
-            when(mockedDataReciever.apiTest()).thenReturn(EXPECTED_API_RESOULT);
+            when(mockedDataReciever.ApiTest()).thenReturn(EXPECTED_API_RESOULT);
 
-            assertEquals(mockedDataReciever.apiTest().cena,EXPECTED_API_RESOULT.cena);
+            assertEquals(mockedDataReciever.ApiTest().cena,EXPECTED_API_RESOULT.cena);
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        verify(mockedDataReciever,times(1)).apiTest();
+        verify(mockedDataReciever,times(1)).ApiTest();
 
     }
 }

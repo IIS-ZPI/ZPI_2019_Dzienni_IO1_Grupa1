@@ -1,9 +1,9 @@
 package com.ZPI.group1.CurrencyData;
 
-public class CurrencySesion {
+public class CurrencySession {
     CurrencyTable currencyTable;
 
-    public CurrencySesion(CurrencyTable currencyTable) {
+    public CurrencySession(CurrencyTable currencyTable) {
         this.currencyTable = currencyTable;
     }
 
