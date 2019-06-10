@@ -1,5 +1,8 @@
 package com.ZPI.group1;
 
+import com.ZPI.group1.ApiController.DataReciver;
+import com.ZPI.group1.CurrencyData.CurrencySession;
+import com.ZPI.group1.CurrencyData.CurrencyTable;
 import com.ZPI.group1.Data.ApiResoult;
 
 import java.util.List;
@@ -114,6 +117,7 @@ public final class Statistics {
     }
 
     private static void performMethod(int option, int period, String firstCurrency, String secondCurrency) {
+        DataReciver dataReciver=new DataReciver();
 
         switch (period) {
             case 1:
@@ -139,16 +143,20 @@ public final class Statistics {
             default:
                 System.out.println("Cos poszlo nie tak...");
         }
-
+        CurrencyTable currencyTable=dataReciver.getCurrencyRate(firstCurrency,period);
+        CurrencySession currencySession=new CurrencySession(currencyTable);
         switch (option) {
             case 1:
                 //method Ilość sesji wzrostowych
+                System.out.println("Ilość sesji wzrostowych to "+currencySession.GetCurrencyGrowthSessionAmount());
                 break;
             case 2:
                 //method Ilość sesji spadkowych
+                System.out.println("Ilość sesji spadkowych to "+currencySession.GetCurrencyDownwardSessionAmount());
                 break;
             case 3:
                 //method Ilość sesji bez zmian
+                System.out.println("Ilość sesji spadkowych to "+currencySession.GetCurrencyConstantSessionAmount());
                 break;
             case 4:
                 //method Mediana

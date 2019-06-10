@@ -35,6 +35,8 @@ public class DataReciver {
     }
     public CurrencyTable getCurrencyRate(final String currency, Integer days){
         CurrencyTable currencyTable=null;
+        if(days>255)
+            days=255;
         Call<CurrencyTable> call = nbpService.getCurrencyRate(currency,days);
 
 
