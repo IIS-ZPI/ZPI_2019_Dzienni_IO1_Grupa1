@@ -9,15 +9,17 @@ import java.util.List;
 /**
  * Hello world!
  */
-public class App {
-    public static void main(String[] args) {
-        ApiResoult apiResoult = DataReciver.ApiTest();
+public class App 
+{
+    public static void main( String[] args )
+    {
+        DataReciver dataReciver = new DataReciver();
+        ApiResoult apiResoult = dataReciver.ApiTest();
 
         List<ApiResoult> apiResoults = new ArrayList<>();
         apiResoults.add(apiResoult);
         System.out.println(apiResoults.get(0).date);
-        Statistics.useMenu(apiResoults);
+        Statistics statistics = new Statistics();
+        statistics.useMenu(apiResoults);
     }
 }
-
-
