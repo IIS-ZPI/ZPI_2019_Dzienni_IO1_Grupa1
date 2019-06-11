@@ -148,15 +148,15 @@ public final class Statistics {
         switch (option) {
             case 1:
                 //method Ilość sesji wzrostowych
-                System.out.println("Ilość sesji wzrostowych to "+currencySession.GetCurrencyGrowthSessionAmount());
+                System.out.println("Ilość sesji wzrostowych to "+currencySession.getCurrencyGrowthSessionAmount());
                 break;
             case 2:
                 //method Ilość sesji spadkowych
-                System.out.println("Ilość sesji spadkowych to "+currencySession.GetCurrencyDownwardSessionAmount());
+                System.out.println("Ilość sesji spadkowych to "+currencySession.getCurrencyDownwardSessionAmount());
                 break;
             case 3:
                 //method Ilość sesji bez zmian
-                System.out.println("Ilość sesji spadkowych to "+currencySession.GetCurrencyConstantSessionAmount());
+                System.out.println("Ilość sesji spadkowych to "+currencySession.getCurrencyConstantSessionAmount());
                 break;
             case 4:
                 //method Mediana

@@ -14,7 +14,7 @@ public class App
     public static void main( String[] args )
     {
         DataReciver dataReciver = new DataReciver();
-        ApiResoult apiResoult = dataReciver.ApiTest();
+        ApiResoult apiResoult = dataReciver.apiTest();
 
         List<ApiResoult> apiResoults = new ArrayList<>();
         apiResoults.add(apiResoult);

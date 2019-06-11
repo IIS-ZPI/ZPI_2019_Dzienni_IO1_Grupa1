@@ -15,7 +15,7 @@ public class DataReciver {
             .build();
 
     private NBPService nbpService = retrofit.create(NBPService.class);
-    public ApiResoult ApiTest() {
+    public ApiResoult apiTest() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://api.nbp.pl/api/")
                 .addConverterFactory(GsonConverterFactory.create())
