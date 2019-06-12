@@ -1,19 +1,26 @@
 package com.ZPI.group1.Calculator;
 
+import com.ZPI.group1.CurrencyData.Rate;
+
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Calculator {
 
-    private static double median(double[] prices) {
+    private static double median(List<Rate> prices) {
         double median = 0;
-        Arrays.sort(prices
-        );
-        if (prices.length % 2 == 0) {
-            median = (prices[prices.length / 2] + prices[(prices.length / 2) + 1]) / 2.0;
+        Collections.sort(prices, new Comparator<Rate>() {
+            @Override
+            public int compare(Rate a, Rate b) {
+                return a.mid.compareTo(b.mid);
+            }
+        });
+        if (prices.size() % 2 == 0) {
+            median = (prices.get(prices.size() / 2).mid + prices.get((prices.size() / 2) + 1).mid) / 2.0;
         } else {
-            median = prices[prices.length / 2];
+            median = prices.get(prices.size() / 2).mid;
         }
 
         return median;
