@@ -27,7 +27,7 @@ public class CurrencySessionTest {
     }
 
     @Test
-    public void getCurrencyDownwardSessionAmountShouldReturnOne() {
+    public void getCurrencyGrowthSessionAmountShouldReturnOne() {
         List<Rate> listOfRatesForTest =new ArrayList<>();
         Rate rate=new Rate("0","12.06.2019",4.45d);
         listOfRatesForTest.add(rate);
@@ -41,7 +41,7 @@ public class CurrencySessionTest {
     }
 
     @Test
-    public void getCurrencyGrowthSessionAmountShouldReturnOne() {
+    public void getCurrencyDownwardSessionAmountShouldReturnOne() {
         List<Rate> listOfRatesForTest =new ArrayList<>();
         Rate rate=new Rate("0","12.06.2019",4.45d);
         listOfRatesForTest.add(rate);
@@ -67,6 +67,67 @@ public class CurrencySessionTest {
         currencySessionForTests=new CurrencySession(testValue);
         Assert.assertEquals(1,currencySessionForTests.getCurrencyConstantSessionAmount());
     }
+
+    @Test
+    public void getCurrencyGrowthSessionAmountShouldReturnTwo() {
+        List<Rate> listOfRatesForTest =new ArrayList<>();
+        Rate rate=new Rate("0","12.06.2019",4.45d);
+        listOfRatesForTest.add(rate);
+        rate=new Rate("1","13.06.2019",4.46d);
+        listOfRatesForTest.add(rate);
+        rate=new Rate("2","14.06.2019",4.87d);
+        listOfRatesForTest.add(rate);
+        rate=new Rate("3","12.06.2019",4.60d);
+        listOfRatesForTest.add(rate);
+        rate=new Rate("4","13.06.2019",4.65d);
+        listOfRatesForTest.add(rate);
+        rate=new Rate("5","14.06.2019",4.70d);
+        listOfRatesForTest.add(rate);
+        testValue.rates=listOfRatesForTest;
+        currencySessionForTests=new CurrencySession(testValue);
+        Assert.assertEquals(2,currencySessionForTests.getCurrencyGrowthSessionAmount());
+    }
+
+    @Test
+    public void getCurrencyDownwardSessionAmountShouldReturnTwo() {
+        List<Rate> listOfRatesForTest =new ArrayList<>();
+        Rate rate=new Rate("0","12.06.2019",4.45d);
+        listOfRatesForTest.add(rate);
+        rate=new Rate("1","13.06.2019",4.30d);
+        listOfRatesForTest.add(rate);
+        rate=new Rate("2","14.06.2019",4.40d);
+        listOfRatesForTest.add(rate);
+        rate=new Rate("3","12.06.2019",4.38d);
+        listOfRatesForTest.add(rate);
+        rate=new Rate("4","13.06.2019",4.36d);
+        listOfRatesForTest.add(rate);
+        rate=new Rate("5","14.06.2019",4.32d);
+        listOfRatesForTest.add(rate);
+        testValue.rates=listOfRatesForTest;
+        currencySessionForTests=new CurrencySession(testValue);
+        Assert.assertEquals(2,currencySessionForTests.getCurrencyDownwardSessionAmount());
+    }
+
+    @Test
+    public void getCurrencyConstantSessionAmountShouldReturnTwo() {
+        List<Rate> listOfRatesForTest =new ArrayList<>();
+        Rate rate=new Rate("0","12.06.2019",4.45d);
+        listOfRatesForTest.add(rate);
+        rate=new Rate("1","13.06.2019",4.45d);
+        listOfRatesForTest.add(rate);
+        rate=new Rate("2","14.06.2019",4.60d);
+        listOfRatesForTest.add(rate);
+        rate=new Rate("3","12.06.2019",4.70d);
+        listOfRatesForTest.add(rate);
+        rate=new Rate("4","13.06.2019",4.70d);
+        listOfRatesForTest.add(rate);
+        rate=new Rate("5","14.06.2019",4.70d);
+        listOfRatesForTest.add(rate);
+        testValue.rates=listOfRatesForTest;
+        currencySessionForTests=new CurrencySession(testValue);
+        Assert.assertEquals(2,currencySessionForTests.getCurrencyConstantSessionAmount());
+    }
+
 
     @Test
     public void currencySessionShouldInvokeMethodgetCurrencyConstantSessionAmountOnce(){
