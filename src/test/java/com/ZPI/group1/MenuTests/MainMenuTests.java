@@ -7,43 +7,42 @@ import org.junit.Test;
 public class MainMenuTests {
 
     @Test
-    public void validateCurrencyCodeShouldReturnTrue(){
+    public void validateCurrencyCodeShouldReturnTrue() {
 
         Statistics statistics = new Statistics();
 
         boolean EXPECTED_VALUE = true;
 
-        Assert.assertEquals(EXPECTED_VALUE,statistics.validateCurrencyCode("PLN"));
+        Assert.assertEquals(EXPECTED_VALUE, statistics.validateCurrencyCode("PLN"));
 
     }
 
     @Test
-    public void validateCurrencyCodeShouldReturnFalseWhenGivenCodeIsEmpty(){
+    public void validateCurrencyCodeShouldReturnFalseWhenGivenCodeIsEmpty() {
 
         Statistics statistics = new Statistics();
         boolean EXPECTED_VALUE = false;
-        Assert.assertEquals(EXPECTED_VALUE,statistics.validateCurrencyCode(""));
+        Assert.assertEquals(EXPECTED_VALUE, statistics.validateCurrencyCode(""));
 
     }
 
     @Test
-    public void validateCurrencyCodeShouldReturnFalseWhenGivenCodeHasLengthGraterThanThree(){
+    public void validateCurrencyCodeShouldReturnFalseWhenGivenCodeHasLengthGraterThanThree() {
 
         Statistics statistics = new Statistics();
         boolean EXPECTED_VALUE = false;
-        Assert.assertEquals(EXPECTED_VALUE,statistics.validateCurrencyCode("ABCDE"));
+        Assert.assertEquals(EXPECTED_VALUE, statistics.validateCurrencyCode("ABCDE"));
 
     }
 
     @Test
-    public void validateCurrencyCodeShouldReturnFalseWhenGivenCodeHasLengthSmallerThanThree(){
+    public void validateCurrencyCodeShouldReturnFalseWhenGivenCodeHasLengthSmallerThanThree() {
 
         Statistics statistics = new Statistics();
         boolean EXPECTED_VALUE = false;
-        Assert.assertEquals(EXPECTED_VALUE,statistics.validateCurrencyCode("E"));
+        Assert.assertEquals(EXPECTED_VALUE, statistics.validateCurrencyCode("E"));
 
     }
-
 
 
 }
