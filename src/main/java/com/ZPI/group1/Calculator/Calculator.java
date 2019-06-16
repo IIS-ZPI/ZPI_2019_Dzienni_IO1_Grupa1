@@ -9,56 +9,70 @@ import java.util.List;
 
 public class Calculator {
 
-    private static double median(List<Rate> prices) {
+    public double median(List<Rate> rates) {
         double median = 0;
-        Collections.sort(prices, new Comparator<Rate>() {
+        Collections.sort(rates, new Comparator<Rate>() {
             @Override
             public int compare(Rate a, Rate b) {
                 return a.mid.compareTo(b.mid);
             }
         });
-        if (prices.size() % 2 == 0) {
-            median = (prices.get(prices.size() / 2).mid + prices.get((prices.size() / 2) + 1).mid) / 2.0;
+        if (rates.size() % 2 == 0) {
+            median = (rates.get(rates.size() / 2).mid + rates.get((rates.size() / 2) + 1).mid) / 2.0;
         } else {
-            median = prices.get(prices.size() / 2).mid;
+            median = rates.get(rates.size() / 2).mid;
         }
 
         return median;
     }
 
-    private static List<Double> dominant(double[] prices) {
+    public List<Double> dominant(List<Rate> rates) {
         List<Double> dominant = new ArrayList<>();
         int max = 0;
         int counter = 0;
 
-        for (int i = 0; i < prices.length; i++) {
+        for (int i = 0; i < rates.size(); i++) {
             counter = 0;
-            for (int k = 0; k < prices.length; k++) {
-                if (prices[i] == prices[k]) {
+            for (int k = 0; k < rates.size(); k++) {
+                if (rates.get(i).mid.equals(rates.get(k).mid)) {
                     counter++;
                 }
             }
             if (counter > max) {
                 dominant.clear();
-                dominant.add(prices[i]);
+                dominant.add(rates.get(i).mid);
                 max = counter;
             } else if (counter == max) {
-                dominant.add(prices[i]);
+                dominant.add(rates.get(i).mid);
             }
         }
         return dominant;
     }
 
-    private static double average(double[] prices) {
+    private double mean(List<Rate> rates) {
 
         double sum = 0;
-        double average = 0;
-        for (double x : prices) {
-            sum = sum + x;
+        for (Rate x : rates) {
+            sum = sum + x.mid;
         }
 
-        average = sum / prices.length;
-
-        return average;
+        return sum / rates.size();
     }
+
+    public double deviation(List<Rate> rates) {
+        double sum = 0;
+        Calculator calc = new Calculator();
+        double average = calc.mean(rates);
+        for (int i = 0; i < rates.size(); i++) {
+            sum += ((rates.get(i).mid - average) * (rates.get(i).mid - average));
+        }
+        return Math.sqrt(sum / (rates.size() - 1));
+
+    }
+
+    public double coefficientOfVariation(List<Rate> rates) {
+        return deviation(rates) / mean(rates);
+    }
+
+
 }
