@@ -8,46 +8,46 @@ public class CurrencySession {
     }
 
     public int getCurrencyDownwardSessionAmount() {
-        InnerClassForSession innerClassForSession=new InnerClassForSession(0,false,0,currencyTable.rates.get(0));
+        InnerClassForSession innerClassForSession = new InnerClassForSession(0, false, 0, currencyTable.rates.get(0));
         for (innerClassForSession.i = 1; innerClassForSession.i < currencyTable.rates.size(); innerClassForSession.i++) {
             if (innerClassForSession.lastRate.mid > currencyTable.rates.get(innerClassForSession.i).mid) {
-                innerClassForSession.result=checkSessionEnds(innerClassForSession);
+                innerClassForSession.result = checkSessionEnds(innerClassForSession);
             } else {
 
-                innerClassForSession.result=checkSessionBegin(innerClassForSession);
+                innerClassForSession.result = checkSessionBegin(innerClassForSession);
             }
         }
         return innerClassForSession.result;
     }
 
     public int getCurrencyGrowthSessionAmount() {
-        InnerClassForSession innerClassForSession=new InnerClassForSession(0,false,0,currencyTable.rates.get(0));
+        InnerClassForSession innerClassForSession = new InnerClassForSession(0, false, 0, currencyTable.rates.get(0));
         for (innerClassForSession.i = 1; innerClassForSession.i < currencyTable.rates.size(); innerClassForSession.i++) {
             if (innerClassForSession.lastRate.mid < currencyTable.rates.get(innerClassForSession.i).mid) {
-                innerClassForSession.result=checkSessionEnds(innerClassForSession);
+                innerClassForSession.result = checkSessionEnds(innerClassForSession);
             } else {
 
-                innerClassForSession.result=checkSessionBegin(innerClassForSession);
+                innerClassForSession.result = checkSessionBegin(innerClassForSession);
             }
         }
         return innerClassForSession.result;
     }
 
     public int getCurrencyConstantSessionAmount() {
-        InnerClassForSession innerClassForSession=new InnerClassForSession(0,false,0,currencyTable.rates.get(0));
+        InnerClassForSession innerClassForSession = new InnerClassForSession(0, false, 0, currencyTable.rates.get(0));
         for (innerClassForSession.i = 1; innerClassForSession.i < currencyTable.rates.size(); innerClassForSession.i++) {
             if (innerClassForSession.lastRate.mid == currencyTable.rates.get(innerClassForSession.i).mid) {
 
-                innerClassForSession.result=checkSessionEnds(innerClassForSession);
+                innerClassForSession.result = checkSessionEnds(innerClassForSession);
             } else {
 
-                innerClassForSession.result=checkSessionBegin(innerClassForSession);
+                innerClassForSession.result = checkSessionBegin(innerClassForSession);
             }
         }
         return innerClassForSession.result;
     }
 
-    private int checkSessionEnds(InnerClassForSession session){
+    private int checkSessionEnds(InnerClassForSession session) {
         if (session.i == currencyTable.rates.size() - 1 && session.sessionStarted) {
             session.result++;
         }
@@ -55,7 +55,8 @@ public class CurrencySession {
         session.lastRate = currencyTable.rates.get(session.i);
         return session.result;
     }
-    private int checkSessionBegin(InnerClassForSession session){
+
+    private int checkSessionBegin(InnerClassForSession session) {
         if (session.i > 1 && session.sessionStarted) {
             session.lastRate = currencyTable.rates.get(session.i);
             session.sessionStarted = false;
@@ -65,7 +66,8 @@ public class CurrencySession {
         }
         return session.result;
     }
-    class InnerClassForSession{
+
+    class InnerClassForSession {
         int i;
         Boolean sessionStarted;
         int result;

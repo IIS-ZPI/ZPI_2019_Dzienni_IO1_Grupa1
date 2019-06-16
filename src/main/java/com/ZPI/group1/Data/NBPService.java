@@ -11,6 +11,7 @@ public interface NBPService {
 
     @GET("cenyzlota")
     Call<List<ApiResoult>> goldPrice();
+
     @GET("exchangerates/rates/a/{Currency}/last/{days}")
     Call<CurrencyTable> getCurrencyRate(@Path("Currency") String currency, @Path("days") Integer days);
 }

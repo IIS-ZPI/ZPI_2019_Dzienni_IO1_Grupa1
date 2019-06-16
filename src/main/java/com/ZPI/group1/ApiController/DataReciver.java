@@ -3,7 +3,9 @@ package com.ZPI.group1.ApiController;
 import com.ZPI.group1.CurrencyData.CurrencyTable;
 import com.ZPI.group1.Data.ApiResoult;
 import com.ZPI.group1.Data.NBPService;
-import retrofit2.*;
+import retrofit2.Call;
+import retrofit2.GsonConverterFactory;
+import retrofit2.Retrofit;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,6 +17,7 @@ public class DataReciver {
             .build();
 
     private NBPService nbpService = retrofit.create(NBPService.class);
+
     public ApiResoult apiTest() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://api.nbp.pl/api/")
@@ -33,16 +36,17 @@ public class DataReciver {
         return null;
 
     }
-    public CurrencyTable getCurrencyRate(final String currency, Integer days){
-        CurrencyTable currencyTable=null;
-        if(days>255)
-            days=255;
-        Call<CurrencyTable> call = nbpService.getCurrencyRate(currency,days);
+
+    public CurrencyTable getCurrencyRate(final String currency, Integer days) {
+        CurrencyTable currencyTable = null;
+        if (days > 255)
+            days = 255;
+        Call<CurrencyTable> call = nbpService.getCurrencyRate(currency, days);
 
 
         try {
             currencyTable = call.execute().body();
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return currencyTable;
