@@ -3,10 +3,7 @@ package com.ZPI.group1.Calculator;
 import com.ZPI.group1.ApiController.DataReciver;
 import com.ZPI.group1.CurrencyData.CurrencyTable;
 import com.ZPI.group1.CurrencyData.Rate;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.jupiter.api.*;
+import org.junit.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +13,7 @@ public class CalculatorTest {
     private  Calculator calculator = new Calculator();
     List<Rate> preparedRatesList;
 
-    @BeforeEach
+    @Before
     public void setup(){
 
         preparedRatesList = new ArrayList<>();
