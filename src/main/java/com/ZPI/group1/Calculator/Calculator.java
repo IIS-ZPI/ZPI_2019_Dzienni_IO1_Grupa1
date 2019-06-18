@@ -49,7 +49,7 @@ public class Calculator {
         return dominant;
     }
 
-    private double mean(List<Rate> rates) {
+    public double mean(List<Rate> rates) {
 
         double sum = 0;
         for (Rate x : rates) {
