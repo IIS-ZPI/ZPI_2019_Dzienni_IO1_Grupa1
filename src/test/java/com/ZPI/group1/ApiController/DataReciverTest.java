@@ -1,7 +1,9 @@
 package com.ZPI.group1.ApiController;
 
+import com.ZPI.group1.CurrencyData.CurrencyTable;
 import com.ZPI.group1.Data.ApiResoult;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 import java.text.ParseException;
 
@@ -41,6 +43,62 @@ public class DataReciverTest {
         }
 
         verify(mockedDataReciever, times(1)).apiTest();
+
+    }
+
+    @Test
+    public void getCurrencyShouldReturnProperCurrencyName(){
+
+        CurrencyTable currencyTable;
+        DataReciver dataReciver = new DataReciver();
+        currencyTable = dataReciver.getCurrencyRate("USD",10);
+
+        final String EXPECTED_CURRENCY = "dolar amerykański";
+        Assertions.assertEquals(EXPECTED_CURRENCY, currencyTable.currency);
+
+    }
+
+    @Test
+    public void getCurrencyShouldNotReturnNullValueWhenCurrencyNameIsValid(){
+
+        CurrencyTable currencyTable;
+        DataReciver dataReciver = new DataReciver();
+        currencyTable = dataReciver.getCurrencyRate("USD",10);
+
+        Assertions.assertNotNull(currencyTable.code);
+
+    }
+
+    @Test
+    public void getCurrencyShouldReturnNullValueWhenCurrencyNameIsInvalid(){
+
+        CurrencyTable currencyTable;
+        DataReciver dataReciver = new DataReciver();
+        currencyTable = dataReciver.getCurrencyRate("PLPL",10);
+
+        Assertions.assertNull(currencyTable);
+
+    }
+
+    @Test
+    public void getCurrencyShouldReturnNullValueWhenGivenPeriodOfTimeIsNegative(){
+
+        CurrencyTable currencyTable;
+        DataReciver dataReciver = new DataReciver();
+        currencyTable = dataReciver.getCurrencyRate("USD",-10);
+
+        Assertions.assertNull(currencyTable);
+
+    }
+
+    @Test
+    public void getCurrencyShouldReturnNullValueWhenGivenPeriodOfTimeIsEqualZero(){
+
+        CurrencyTable currencyTable;
+        DataReciver dataReciver = new DataReciver();
+        currencyTable = dataReciver.getCurrencyRate("USD",0);
+
+        Assertions.assertNull(currencyTable);
 
     }
 }
