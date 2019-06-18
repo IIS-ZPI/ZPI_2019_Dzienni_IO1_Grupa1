@@ -3,10 +3,7 @@ package com.ZPI.group1.Calculator;
 import com.ZPI.group1.ApiController.DataReciver;
 import com.ZPI.group1.CurrencyData.CurrencyTable;
 import com.ZPI.group1.CurrencyData.Rate;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.jupiter.api.*;
+import org.junit.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +13,7 @@ public class CalculatorTest {
     private  Calculator calculator = new Calculator();
     List<Rate> preparedRatesList;
 
-    @BeforeEach
+    @Before
     public void setup(){
 
         preparedRatesList = new ArrayList<>();
@@ -44,7 +41,7 @@ public class CalculatorTest {
     public void medianShouldReturnProperValueTest(){
 
         final double EXPECTED_MEDIAN = 14.0;
-        Assertions.assertEquals(EXPECTED_MEDIAN,calculator.median(preparedRatesList));
+        Assert.assertEquals(EXPECTED_MEDIAN,calculator.median(preparedRatesList),0.01);
 
     }
 
@@ -52,7 +49,7 @@ public class CalculatorTest {
     public void meanShouldReturnProperValueTest(){
 
         final double EXPECTED_MEAN = 14;
-        Assertions.assertEquals(EXPECTED_MEAN, calculator.mean(preparedRatesList));
+        Assert.assertEquals(EXPECTED_MEAN, calculator.mean(preparedRatesList),0.01);
 
     }
 
@@ -69,7 +66,7 @@ public class CalculatorTest {
         actualDeviation = (double) Math.round(actualDeviation);
         actualDeviation = actualDeviation / 10000.0;
 
-        Assertions.assertEquals(expectedDeviation,actualDeviation);
+        Assert.assertEquals(expectedDeviation,actualDeviation,0.01);
 
     }
 
@@ -86,17 +83,16 @@ public class CalculatorTest {
         actualCofficientOfVariation = (double) Math.round(actualCofficientOfVariation);
         actualCofficientOfVariation = actualCofficientOfVariation / 10000.0;
 
-        Assertions.assertEquals(expectedCofficientOfVariation, actualCofficientOfVariation);
+        Assert.assertEquals(expectedCofficientOfVariation, actualCofficientOfVariation,0.01);
 
     }
 
-    @Disabled
     @Test
     public void dominantShouldReturnProperValueTest(){
 
         final double EXPECTED_DOMINANT = 14.0;
 
-        Assertions.assertEquals(EXPECTED_DOMINANT, calculator.dominant(preparedRatesList));
+        Assert.assertTrue(calculator.dominant(preparedRatesList).contains(EXPECTED_DOMINANT));
 
     }
 

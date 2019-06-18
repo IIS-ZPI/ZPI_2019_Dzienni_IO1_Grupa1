@@ -3,7 +3,6 @@ package com.ZPI.group1.ApiController;
 import com.ZPI.group1.CurrencyData.CurrencyTable;
 import com.ZPI.group1.Data.ApiResoult;
 import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
 
 import java.text.ParseException;
 
@@ -54,7 +53,7 @@ public class DataReciverTest {
         currencyTable = dataReciver.getCurrencyRate("USD",10);
 
         final String EXPECTED_CURRENCY = "dolar amerykański";
-        Assertions.assertEquals(EXPECTED_CURRENCY, currencyTable.currency);
+        assertEquals(EXPECTED_CURRENCY, currencyTable.currency);
 
     }
 
@@ -65,7 +64,7 @@ public class DataReciverTest {
         DataReciver dataReciver = new DataReciver();
         currencyTable = dataReciver.getCurrencyRate("USD",10);
 
-        Assertions.assertNotNull(currencyTable.code);
+        assertNotNull(currencyTable.code);
 
     }
 
@@ -76,7 +75,7 @@ public class DataReciverTest {
         DataReciver dataReciver = new DataReciver();
         currencyTable = dataReciver.getCurrencyRate("PLPL",10);
 
-        Assertions.assertNull(currencyTable);
+        assertNull(currencyTable);
 
     }
 
@@ -87,7 +86,7 @@ public class DataReciverTest {
         DataReciver dataReciver = new DataReciver();
         currencyTable = dataReciver.getCurrencyRate("USD",-10);
 
-        Assertions.assertNull(currencyTable);
+        assertNull(currencyTable);
 
     }
 
@@ -98,7 +97,7 @@ public class DataReciverTest {
         DataReciver dataReciver = new DataReciver();
         currencyTable = dataReciver.getCurrencyRate("USD",0);
 
-        Assertions.assertNull(currencyTable);
+        assertNull(currencyTable);
 
     }
 }
