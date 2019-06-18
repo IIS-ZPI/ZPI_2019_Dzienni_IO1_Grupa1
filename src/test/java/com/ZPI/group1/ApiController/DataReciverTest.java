@@ -3,7 +3,6 @@ package com.ZPI.group1.ApiController;
 import com.ZPI.group1.CurrencyData.CurrencyTable;
 import com.ZPI.group1.Data.ApiResoult;
 import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
 
 import java.text.ParseException;
 
