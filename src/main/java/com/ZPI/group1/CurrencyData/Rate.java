@@ -12,6 +12,9 @@ public class Rate {
         this.mid = mid;
     }
 
+    public Rate() {
+    }
+
     @Override
     public String toString() {
         return "Rate{" +
