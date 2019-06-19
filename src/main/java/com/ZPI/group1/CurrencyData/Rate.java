@@ -6,6 +6,15 @@ public class Rate {
     public String effectiveDate;
     public Double mid;
 
+    public Rate(String no, String effectiveDate, Double mid) {
+        this.no = no;
+        this.effectiveDate = effectiveDate;
+        this.mid = mid;
+    }
+
+    public Rate() {
+    }
+
     @Override
     public String toString() {
         return "Rate{" +

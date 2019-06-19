@@ -36,7 +36,7 @@ public class CurrencySession {
     public int getCurrencyConstantSessionAmount() {
         InnerClassForSession innerClassForSession = new InnerClassForSession(0, false, 0, currencyTable.rates.get(0));
         for (innerClassForSession.i = 1; innerClassForSession.i < currencyTable.rates.size(); innerClassForSession.i++) {
-            if (innerClassForSession.lastRate.mid == currencyTable.rates.get(innerClassForSession.i).mid) {
+            if (innerClassForSession.lastRate.mid.equals(currencyTable.rates.get(innerClassForSession.i).mid)) {
 
                 innerClassForSession.result = checkSessionEnds(innerClassForSession);
             } else {
