@@ -13,14 +13,14 @@ import java.util.regex.Pattern;
  * Class Statistics offers methods for currency
  * exchange rate's statistic calculations.
  */
-public final class Statistics {
+public class Statistics {
 
-    public static final int WEEK = 7;
-    public static final int TWO_WEEKS = 14;
-    public static final int MONTH = 31;
-    public static final int QUARTER = 122;
-    public static final int HALF_YEAR = 182;
-    public static final int YEAR = 365;
+    public int week = 7;
+    public int twoWeeks = 14;
+    public int month = 31;
+    public int quarter = 122;
+    public int halfYear = 182;
+    public int year = 365;
 
     /**
      * Prints menu to help you with
@@ -116,47 +116,47 @@ public final class Statistics {
         performMethod(optionAnswer, periodAnswer, firstCurrency, secondCurrency);
     }
 
-    private static void performMethod(int option, int period, String firstCurrency, String secondCurrency) {
-        DataReciver dataReciver=new DataReciver();
+    private void performMethod(int option, int period, String firstCurrency, String secondCurrency) {
+        DataReciver dataReciver = new DataReciver();
 
         switch (period) {
             case 1:
-                period = WEEK;
+                period = week;
                 break;
             case 2:
-                period = TWO_WEEKS;
+                period = twoWeeks;
                 break;
             case 3:
-                period = MONTH;
+                period = month;
                 break;
             case 4:
-                period = QUARTER;
+                period = quarter;
                 break;
             case 5:
-                period = HALF_YEAR;
+                period = halfYear;
                 break;
             case 6:
-                period = YEAR;
+                period = year;
                 break;
             case 0: //when we skipPeriodMenu
                 break;
             default:
                 System.out.println("Cos poszlo nie tak...");
         }
-        CurrencyTable currencyTable=dataReciver.getCurrencyRate(firstCurrency,period);
-        CurrencySession currencySession=new CurrencySession(currencyTable);
+        CurrencyTable currencyTable = dataReciver.getCurrencyRate(firstCurrency, period);
+        CurrencySession currencySession = new CurrencySession(currencyTable);
         switch (option) {
             case 1:
                 //method Ilość sesji wzrostowych
-                System.out.println("Ilość sesji wzrostowych to "+currencySession.getCurrencyGrowthSessionAmount());
+                System.out.println("Ilość sesji wzrostowych to " + currencySession.getCurrencyGrowthSessionAmount());
                 break;
             case 2:
                 //method Ilość sesji spadkowych
-                System.out.println("Ilość sesji spadkowych to "+currencySession.getCurrencyDownwardSessionAmount());
+                System.out.println("Ilość sesji spadkowych to " + currencySession.getCurrencyDownwardSessionAmount());
                 break;
             case 3:
                 //method Ilość sesji bez zmian
-                System.out.println("Ilość sesji spadkowych to "+currencySession.getCurrencyConstantSessionAmount());
+                System.out.println("Ilość sesji spadkowych to " + currencySession.getCurrencyConstantSessionAmount());
                 break;
             case 4:
                 //method Mediana
@@ -192,31 +192,31 @@ public final class Statistics {
 
     }
 
-    private static void printOptionMenu() {
+    private void printOptionMenu() {
 
-        System.out.println("1. Ilość sesji wzrostowych.");
-        System.out.println("2. Ilość sesji spadkowych.");
-        System.out.println("3. Ilość sesji bez zmian.");
+        System.out.println("1. Ilosc sesji wzrostowych.");
+        System.out.println("2. Ilosc sesji spadkowych.");
+        System.out.println("3. Ilosc sesji bez zmian.");
         System.out.println("4. Mediana");
         System.out.println("5. Dominanta");
         System.out.println("6. Odchylenie standardowe.");
-        System.out.println("7. Współczynnik zmienności");
-        System.out.println("8. Rozkład zmian miesięcznych");
-        System.out.println("9. Rozkład zmian kwartalnych");
+        System.out.println("7. Wspolczynnik zmiennosci");
+        System.out.println("8. Rozklad zmian miesiecznych");
+        System.out.println("9. Rozklad zmian kwartalnych");
     }
 
-    private static void printPeriodMenu() {
+    private void printPeriodMenu() {
 
-        System.out.println("1. Jeden tydzień");
+        System.out.println("1. Jeden tydzien");
         System.out.println("2. Dwa tygodnie");
-        System.out.println("3. Jeden miesiąc");
-        System.out.println("4. Jeden kwartał");
-        System.out.println("5. Pół roku");
+        System.out.println("3. Jeden miesiac");
+        System.out.println("4. Jeden kwartal");
+        System.out.println("5. Pol roku");
         System.out.println("6. Rok");
     }
 
-    private static void printCurrencyMenu() {
+    private void printCurrencyMenu() {
 
-        System.out.println("Wprowadź kod waluty: ");
+        System.out.println("Wprowadz kod waluty: ");
     }
 }
