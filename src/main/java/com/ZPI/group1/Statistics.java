@@ -1,6 +1,7 @@
 package com.ZPI.group1;
 
 import com.ZPI.group1.ApiController.DataReciver;
+import com.ZPI.group1.Calculator.Calculator;
 import com.ZPI.group1.CurrencyData.CurrencySession;
 import com.ZPI.group1.CurrencyData.CurrencyTable;
 import com.ZPI.group1.Data.ApiResoult;
@@ -145,6 +146,7 @@ public class Statistics {
         }
         CurrencyTable currencyTable = dataReciver.getCurrencyRate(firstCurrency, period);
         CurrencySession currencySession = new CurrencySession(currencyTable);
+        Calculator calculator = new Calculator();
         switch (option) {
             case 1:
                 //method Ilość sesji wzrostowych
@@ -160,21 +162,27 @@ public class Statistics {
                 break;
             case 4:
                 //method Mediana
+                calculator.median(currencyTable.rates);
                 break;
             case 5:
                 //method Dominanta
+                calculator.dominant(currencyTable.rates);
                 break;
             case 6:
                 //method Odchylenie standardowe
+                calculator.deviation(currencyTable.rates);
                 break;
             case 7:
                 //method Współczynnik zmienności
+                calculator.coefficientOfVariation(currencyTable.rates);
                 break;
             case 8:
                 //method Rozkład zmian miesięcznych
+
                 break;
             case 9:
                 //method Rozkład zmian kwartalnych
+
                 break;
             default:
                 System.out.println("Cos poszlo nie tak...");
