@@ -1,25 +1,28 @@
 package com.ZPI.group1;
 
-import com.ZPI.group1.ApiController.DataReciver;
-import com.ZPI.group1.Data.ApiResoult;
+import com.ZPI.group1.Exceptions.NoDataFoundException;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
 
 /**
  * Hello world!
  */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        DataReciver dataReciver = new DataReciver();
-        ApiResoult apiResoult = dataReciver.apiTest();
-
-        List<ApiResoult> apiResoults = new ArrayList<>();
-        apiResoults.add(apiResoult);
-        System.out.println(apiResoults.get(0).date);
+public class App {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
         Statistics statistics = new Statistics();
-        statistics.useMenu(apiResoults);
+        while (true) {
+            try {
+                statistics.useMenu();
+            } catch (NoDataFoundException e) {
+                System.out.println(e.getMessage());
+            }
+            System.out.println("\nType 'exit' to finish or anything else to continue");
+            if ("exit".equals(in.nextLine().trim())) {
+                break;
+            } else {
+                System.out.println("\n");
+            }
+        }
     }
 }

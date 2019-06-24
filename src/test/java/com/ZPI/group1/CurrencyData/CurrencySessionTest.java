@@ -1,6 +1,7 @@
 package com.ZPI.group1.CurrencyData;
 
 
+import com.ZPI.group1.Exceptions.NoDataFoundException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +28,7 @@ public class CurrencySessionTest {
     }
 
     @Test
-    public void getCurrencyGrowthSessionAmountShouldReturnOne() {
+    public void getCurrencyGrowthSessionAmountShouldReturnOne() throws NoDataFoundException {
         List<Rate> listOfRatesForTest =new ArrayList<>();
         Rate rate=new Rate("0","12.06.2019",4.45d);
         listOfRatesForTest.add(rate);
@@ -41,7 +42,7 @@ public class CurrencySessionTest {
     }
 
     @Test
-    public void getCurrencyDownwardSessionAmountShouldReturnOne() {
+    public void getCurrencyDownwardSessionAmountShouldReturnOne() throws NoDataFoundException {
         List<Rate> listOfRatesForTest =new ArrayList<>();
         Rate rate=new Rate("0","12.06.2019",4.45d);
         listOfRatesForTest.add(rate);
@@ -55,7 +56,7 @@ public class CurrencySessionTest {
     }
 
     @Test
-    public void getCurrencyConstantSessionAmount() {
+    public void getCurrencyConstantSessionAmount() throws NoDataFoundException {
         List<Rate> listOfRatesForTest =new ArrayList<>();
         Rate rate=new Rate("0","12.06.2019",4.45d);
         listOfRatesForTest.add(rate);
@@ -69,7 +70,7 @@ public class CurrencySessionTest {
     }
 
     @Test
-    public void getCurrencyGrowthSessionAmountShouldReturnTwo() {
+    public void getCurrencyGrowthSessionAmountShouldReturnTwo() throws NoDataFoundException {
         List<Rate> listOfRatesForTest =new ArrayList<>();
         Rate rate=new Rate("0","12.06.2019",4.45d);
         listOfRatesForTest.add(rate);
@@ -89,7 +90,7 @@ public class CurrencySessionTest {
     }
 
     @Test
-    public void getCurrencyDownwardSessionAmountShouldReturnTwo() {
+    public void getCurrencyDownwardSessionAmountShouldReturnTwo() throws NoDataFoundException {
         List<Rate> listOfRatesForTest =new ArrayList<>();
         Rate rate=new Rate("0","12.06.2019",4.45d);
         listOfRatesForTest.add(rate);
@@ -109,7 +110,7 @@ public class CurrencySessionTest {
     }
 
     @Test
-    public void getCurrencyConstantSessionAmountShouldReturnTwo() {
+    public void getCurrencyConstantSessionAmountShouldReturnTwo() throws NoDataFoundException {
         List<Rate> listOfRatesForTest =new ArrayList<>();
         Rate rate=new Rate("0","12.06.2019",4.45d);
         listOfRatesForTest.add(rate);

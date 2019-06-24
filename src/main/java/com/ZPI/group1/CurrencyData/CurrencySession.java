@@ -1,9 +1,14 @@
 package com.ZPI.group1.CurrencyData;
 
+import com.ZPI.group1.Exceptions.NoDataFoundException;
+
 public class CurrencySession {
     CurrencyTable currencyTable;
 
-    public CurrencySession(CurrencyTable currencyTable) {
+    public CurrencySession(CurrencyTable currencyTable) throws NoDataFoundException {
+        if (currencyTable == null) {
+            throw new NoDataFoundException("\nSorry. No data found.");
+        }
         this.currencyTable = currencyTable;
     }
 

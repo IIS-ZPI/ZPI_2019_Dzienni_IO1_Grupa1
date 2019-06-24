@@ -28,7 +28,6 @@ public class DataReciver {
         try {
 
             ApiResoult apiResoult = call.execute().body().get(0);
-            System.out.println(apiResoult);
             return apiResoult;
         } catch (IOException e) {
             System.out.println(e.getMessage() + " blad");
@@ -49,6 +48,7 @@ public class DataReciver {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+
         return currencyTable;
     }
 

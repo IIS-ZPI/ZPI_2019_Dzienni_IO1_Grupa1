@@ -4,16 +4,12 @@ import com.ZPI.group1.ApiController.DataReciver;
 import com.ZPI.group1.Calculator.Calculator;
 import com.ZPI.group1.CurrencyData.CurrencySession;
 import com.ZPI.group1.CurrencyData.CurrencyTable;
-import com.ZPI.group1.Data.ApiResoult;
+import com.ZPI.group1.Exceptions.NoDataFoundException;
 
-import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-/**
- * Class Statistics offers methods for currency
- * exchange rate's statistic calculations.
- */
+
 public class Statistics {
 
     public int week = 7;
@@ -23,13 +19,8 @@ public class Statistics {
     public int halfYear = 182;
     public int year = 365;
 
-    /**
-     * Prints menu to help you with
-     * handling class's options.
-     *
-     * @param apiResults Data to perform calculations on.
-     */
-    public void useMenu(List<ApiResoult> apiResults) {
+
+    public void useMenu() throws NoDataFoundException {
 
         Scanner in = new Scanner(System.in);
         boolean skipPeriodMenu;
@@ -103,9 +94,9 @@ public class Statistics {
             }
 
             //get currency to perform method for
+            in.nextLine(); // clear input
             while (true) {
                 printCurrencyMenu();
-                in.nextLine(); // clear input
                 firstCurrency = in.nextLine().trim().toUpperCase();
                 if (validateCurrencyCode(firstCurrency)) {
                     break;
@@ -117,7 +108,7 @@ public class Statistics {
         performMethod(optionAnswer, periodAnswer, firstCurrency, secondCurrency);
     }
 
-    private void performMethod(int option, int period, String firstCurrency, String secondCurrency) {
+    private void performMethod(int option, int period, String firstCurrency, String secondCurrency) throws NoDataFoundException {
         DataReciver dataReciver = new DataReciver();
 
         switch (period) {
@@ -162,19 +153,19 @@ public class Statistics {
                 break;
             case 4:
                 //method Mediana
-                calculator.median(currencyTable.rates);
+                System.out.println("Mediana to " + calculator.median(currencyTable.rates));
                 break;
             case 5:
                 //method Dominanta
-                calculator.dominant(currencyTable.rates);
+                System.out.println("Dominanta to " + calculator.dominant(currencyTable.rates));
                 break;
             case 6:
                 //method Odchylenie standardowe
-                calculator.deviation(currencyTable.rates);
+                System.out.println("Odchylenie standardowe to " + calculator.deviation(currencyTable.rates));
                 break;
             case 7:
                 //method Współczynnik zmienności
-                calculator.coefficientOfVariation(currencyTable.rates);
+                System.out.println("Współczynnik zmienności to " + calculator.coefficientOfVariation(currencyTable.rates));
                 break;
             case 8:
                 //method Rozkład zmian miesięcznych
@@ -191,7 +182,7 @@ public class Statistics {
 
     public boolean validateCurrencyCode(String code) {
 
-        if (code == null || code.isEmpty() || code.length() != 3 || Pattern.matches("[^a-zA-Z]+", code)) {
+        if (code == null || code.isEmpty() || code.trim().length() != 3 || Pattern.matches("[^a-zA-Z]+", code)) {
             return false;
         } else {
             return true;
